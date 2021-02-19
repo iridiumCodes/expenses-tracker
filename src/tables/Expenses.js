@@ -12,7 +12,7 @@ const Expenses = (props) => (
     <tbody>
       {props.expenses.length > 0 ? (
         props.expenses.map((expense) => (
-          <tr>
+          <tr key={expense.id}>
             <td>{expense.name}</td>
             <td>{expense.price}</td>
             <td>
