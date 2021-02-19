@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Expenses = () => (
+const Expenses = (props) => (
   <table>
     <thead>
       <tr>
@@ -10,14 +10,22 @@ const Expenses = () => (
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Expense Data</td>
-        <td>Price Data</td>
-        <td>
-          <button className="button muted-button">Edit</button>
-          <button className="button muted-button">Delete</button>
-        </td>
-      </tr>
+      {props.expenses.length > 0 ? (
+        props.expenses.map((expense) => (
+          <tr>
+            <td>{expense.name}</td>
+            <td>{expense.price}</td>
+            <td>
+              <button className="button muted-button">Edit</button>
+              <button className="button muted-button">Delete</button>
+            </td>
+          </tr>
+        ))
+      ) : (
+        <tr>
+          <td colSpan={3}>Empty log</td>
+        </tr>
+      )}
     </tbody>
   </table>
 );

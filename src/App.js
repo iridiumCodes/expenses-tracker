@@ -9,6 +9,7 @@ const App = () => {
   ];
 
   const [expenses, setExpenses] = useState(expensesData);
+
   return (
     <div className="container">
       <h1>Expenses Tracker</h1>
@@ -18,7 +19,7 @@ const App = () => {
         </div>
         <div className="flex-large">
           <h2>View Expenses</h2>
-          <Expenses />
+          <Expenses expenses={expenses} />
         </div>
       </div>
     </div>
