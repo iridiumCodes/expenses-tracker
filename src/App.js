@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Expenses from './tables/Expenses';
+import AddExpensesForm from './forms/AddExpensesForm';
 
 const App = () => {
   const expensesData = [
@@ -10,12 +11,18 @@ const App = () => {
 
   const [expenses, setExpenses] = useState(expensesData);
 
+  const addExpense = (expense) => {
+    expense.id = expenses.length + 1;
+    setExpenses([...expenses, expense]);
+  };
+
   return (
     <div className="container">
       <h1>Expenses Tracker</h1>
       <div className="flex-row">
         <div className="flex-large">
           <h2>Add Expense</h2>
+          <AddExpensesForm addExpense={addExpense} />
         </div>
         <div className="flex-large">
           <h2>View Expenses</h2>
