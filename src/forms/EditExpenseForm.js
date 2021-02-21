@@ -1,6 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 const EditExpenseForm = (props) => {
+  useEffect(() => {
+    setExpense(props.currentExpense);
+  }, [props]);
+
   const [expense, setExpense] = useState(props.currentExpense);
 
   const handleInputChange = (event) => {

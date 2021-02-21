@@ -23,6 +23,7 @@ const App = () => {
   };
 
   const deleteExpense = (id) => {
+    setEditing(false);
     setExpenses(expenses.filter((expense) => expense.id !== id)); //filter out the current expense
   };
 
