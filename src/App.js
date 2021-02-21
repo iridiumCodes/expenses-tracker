@@ -17,7 +17,9 @@ const App = () => {
     console.log(expenses);
   };
 
-  const deleteExpense = (id) => {};
+  const deleteExpense = (id) => {
+    setExpenses(expenses.filter((expense) => expense.id !== id)); //filter out the current expense
+  };
 
   return (
     <div className="container">
@@ -29,7 +31,7 @@ const App = () => {
         </div>
         <div className="flex-large">
           <h2>View Expenses</h2>
-          <Expenses expenses={expenses} />
+          <Expenses expenses={expenses} deleteExpense={deleteExpense} />
         </div>
       </div>
     </div>
