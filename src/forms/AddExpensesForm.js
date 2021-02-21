@@ -10,7 +10,13 @@ const AddExpensesForm = (props) => {
   };
 
   return (
-    <form>
+    <form
+      onSubmit={(event) => {
+        event.preventDefault(); //prevents default form submission
+        if (!expense.name || !expense.price) return; //validation no empty values allowed
+        props.addExpense(expense); //pass input to expenses state
+        setExpense(initialFormState); //reset the form to initial value
+      }}>
       <label>Name</label>
       <input
         onChange={handleInputChange}
