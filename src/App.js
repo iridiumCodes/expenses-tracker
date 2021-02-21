@@ -14,7 +14,10 @@ const App = () => {
   const addExpense = (expense) => {
     expense.id = expenses.length + 1;
     setExpenses([...expenses, expense]);
+    console.log(expenses);
   };
+
+  const deleteExpense = (id) => {};
 
   return (
     <div className="container">
