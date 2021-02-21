@@ -16,7 +16,11 @@ const Expenses = (props) => (
             <td>{expense.name}</td>
             <td>{expense.price}</td>
             <td>
-              <button className="button muted-button">Edit</button>
+              <button
+                onClick={() => props.editExpense(expense)}
+                className="button muted-button">
+                Edit
+              </button>
               <button
                 onClick={() => props.deleteExpense(expense.id)}
                 className="button muted-button">
