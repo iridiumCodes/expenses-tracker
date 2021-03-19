@@ -9,9 +9,7 @@ const App = () => {
   }, []);
 
   const expensesData = [
-    {id: 1, type: 'Milk', amount: '2$'},
-    {id: 2, type: 'Bread', amount: '1$'},
-    {id: 3, type: 'Coffee', amount: '4$'},
+    {id: 1, date: '2021-03-17', type: 'Milk', amount: '2$'},
   ];
 
   const initialFormState = {id: null, type: '', amount: ''};
@@ -23,7 +21,6 @@ const App = () => {
   const addExpense = (expense) => {
     expense.id = expenses.length + 1;
     setExpenses([...expenses, expense]);
-    console.log(expenses);
   };
 
   const deleteExpense = (id) => {
@@ -36,8 +33,8 @@ const App = () => {
 
     setCurrentExpense({
       id: expense.id,
-      name: expense.name,
-      price: expense.price,
+      type: expense.type,
+      amount: expense.amount,
     });
   };
 

@@ -4,6 +4,7 @@ const Expenses = (props) => (
   <table>
     <thead>
       <tr>
+        <th>Date</th>
         <th>Expense</th>
         <th>Amount</th>
         <th>Actions</th>
@@ -13,6 +14,7 @@ const Expenses = (props) => (
       {props.expenses.length > 0 ? (
         props.expenses.map((expense) => (
           <tr key={expense.id}>
+            <td>{expense.date}</td>
             <td>{expense.type}</td>
             <td>{expense.amount}</td>
             <td>

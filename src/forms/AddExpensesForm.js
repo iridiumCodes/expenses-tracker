@@ -32,10 +32,10 @@ const AddExpensesForm = (props) => {
         name="type"
         value={expense.type}
       />
-      <label>Amount</label>
+      <label>Amount (&#8364;</label>
       <input
         onChange={handleInputChange}
-        type="text"
+        type="number"
         name="amount"
         value={expense.amount}
       />

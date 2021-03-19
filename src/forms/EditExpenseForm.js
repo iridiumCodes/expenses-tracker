@@ -18,19 +18,26 @@ const EditExpenseForm = (props) => {
         event.preventDefault(); //prevents default form submission
         props.updateExpense(expense.id, expense); //pass input to expenses state
       }}>
-      <label>Name</label>
+      <label>Date</label>
       <input
         onChange={handleInputChange}
-        type="text"
-        name="name"
-        value={expense.name}
+        type="date"
+        name="date"
+        value={expense.date}
       />
-      <label>Price</label>
+      <label>Type</label>
       <input
         onChange={handleInputChange}
         type="text"
-        name="price"
-        value={expense.price}
+        name="type"
+        value={expense.type}
+      />
+      <label>Amount</label>
+      <input
+        onChange={handleInputChange}
+        type="number"
+        name="amount"
+        value={expense.amount}
       />
       <button>Update expense</button>
       <button
