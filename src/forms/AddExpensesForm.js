@@ -13,19 +13,6 @@ const AddExpensesForm = (props) => {
     setExpense({...expense, [name]: value});
   };
 
-  // const handleInputChange = (event) => {
-  //   const {name, value} = event.target;
-  //   setExpense({...expense, [name]: value});
-  // };
-
-  // const handleReset = () => {
-  //   Array.from(document.querySelectorAll('input')).forEach(
-  //     (input) => (input.value = ''),
-  //   );
-  //   this.setState({
-  //     itemvalues: [{}],
-  //   });
-  // };
   return (
     <form
       onSubmit={(event) => {
