@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 const AddExpensesForm = (props) => {
-  const initialFormState = {id: null, name: '', price: ''};
+  const initialFormState = {id: null, type: '', amount: ''};
   const [expense, setExpense] = useState(initialFormState);
 
   const handleInputChange = (event) => {
@@ -13,25 +13,31 @@ const AddExpensesForm = (props) => {
     <form
       onSubmit={(event) => {
         event.preventDefault(); //prevents default form submission
-        if (!expense.name || !expense.price) return; //validation no empty values allowed
+        if (!expense.type || !expense.amount) return; //validation no empty values allowed
 
         props.addExpense(expense); //pass input to expenses state
-        console.log(expense);
         setExpense(initialFormState); //reset the form to initial value
       }}>
-      <label>Name</label>
+      <label>Date</label>
       <input
         onChange={handleInputChange}
-        type="text"
-        name="name"
-        value={expense.name}
+        type="date"
+        name="date"
+        value={expense.date}
       />
-      <label>Price</label>
+      <label>Type</label>
       <input
         onChange={handleInputChange}
         type="text"
-        name="price"
-        value={expense.price}
+        name="type"
+        value={expense.type}
+      />
+      <label>Amount</label>
+      <input
+        onChange={handleInputChange}
+        type="text"
+        name="amount"
+        value={expense.amount}
       />
       <button>Add new expense</button>
     </form>

@@ -5,7 +5,7 @@ const Expenses = (props) => (
     <thead>
       <tr>
         <th>Expense</th>
-        <th>Price</th>
+        <th>Amount</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -13,8 +13,8 @@ const Expenses = (props) => (
       {props.expenses.length > 0 ? (
         props.expenses.map((expense) => (
           <tr key={expense.id}>
-            <td>{expense.name}</td>
-            <td>{expense.price}</td>
+            <td>{expense.type}</td>
+            <td>{expense.amount}</td>
             <td>
               <button
                 onClick={() => props.editExpense(expense)}

@@ -1,16 +1,20 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Expenses from './tables/Expenses';
 import AddExpensesForm from './forms/AddExpensesForm';
 import EditExpenseForm from './forms/EditExpenseForm';
 
 const App = () => {
+  useEffect(() => {
+    document.title = 'Expenses Tracker';
+  }, []);
+
   const expensesData = [
-    {id: 1, name: 'Milk', price: '2$'},
-    {id: 2, name: 'Bread', price: '1$'},
-    {id: 3, name: 'Coffee', price: '4$'},
+    {id: 1, type: 'Milk', amount: '2$'},
+    {id: 2, type: 'Bread', amount: '1$'},
+    {id: 3, type: 'Coffee', amount: '4$'},
   ];
 
-  const initialFormState = {id: null, name: '', price: ''};
+  const initialFormState = {id: null, type: '', amount: ''};
 
   const [expenses, setExpenses] = useState(expensesData);
   const [editing, setEditing] = useState(false); //is edit mode on? starts as false
