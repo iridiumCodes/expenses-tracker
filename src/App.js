@@ -8,11 +8,9 @@ const App = () => {
     document.title = 'Expenses Tracker';
   }, []);
 
-  const expensesData = [
-    {id: 1, date: '2021-03-17', type: 'Milk', amount: '2$'},
-  ];
+  const expensesData = [{id: 1, date: '2021-03-17', type: 'Milk', amount: '2'}];
 
-  const initialFormState = {id: null, type: '', amount: ''};
+  const initialFormState = {id: null, date: '', type: '', amount: ''};
 
   const [expenses, setExpenses] = useState(expensesData);
   const [editing, setEditing] = useState(false); //is edit mode on? starts as false
@@ -33,6 +31,7 @@ const App = () => {
 
     setCurrentExpense({
       id: expense.id,
+      date: expense.date,
       type: expense.type,
       amount: expense.amount,
     });
