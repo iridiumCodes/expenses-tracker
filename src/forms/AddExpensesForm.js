@@ -1,7 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, setState, useEffect} from 'react';
 
 const AddExpensesForm = (props) => {
-  const initialFormState = {id: null, type: '', amount: ''};
+  useEffect(() => {
+    setExpense(initialFormState);
+  }, [props]);
+
+  const initialFormState = {id: null, date: '', type: '', amount: ''};
   const [expense, setExpense] = useState(initialFormState);
 
   const handleInputChange = (event) => {
@@ -9,6 +13,19 @@ const AddExpensesForm = (props) => {
     setExpense({...expense, [name]: value});
   };
 
+  // const handleInputChange = (event) => {
+  //   const {name, value} = event.target;
+  //   setExpense({...expense, [name]: value});
+  // };
+
+  // const handleReset = () => {
+  //   Array.from(document.querySelectorAll('input')).forEach(
+  //     (input) => (input.value = ''),
+  //   );
+  //   this.setState({
+  //     itemvalues: [{}],
+  //   });
+  // };
   return (
     <form
       onSubmit={(event) => {
@@ -17,7 +34,6 @@ const AddExpensesForm = (props) => {
           return; //validation no empty values allowed
         }
         props.addExpense(expense); //pass input to expenses state
-        setExpense(initialFormState); //reset the form to initial value
       }}>
       <label>Date</label>
       <input

@@ -26,16 +26,21 @@ const EditExpenseForm = (props) => {
         value={expense.date}
         required
       />
-      <label for="type">Expense Type:</label>
-      <select id="type" name="type">
-        <option value="housing">Housing</option>
-        <option value="groceries">Groceries</option>
-        <option value="delivery">Delivery</option>
-        <option value="utilities">Utilities</option>
-        <option value="personal">Personal</option>
-        <option value="entertainment">Entertainment</option>
-        <option value="transportation">Transportation</option>
-        <option value="misc">Misc</option>
+      <label htmlFor="type">Expense Type:</label>
+      <select
+        onChange={handleInputChange}
+        id="type"
+        name="type"
+        value={expense.type}
+        required>
+        <option value="Groceries">Groceries</option>
+        <option value="Housing">Housing</option>
+        <option value="Delivery">Delivery</option>
+        <option value="Utilities">Utilities</option>
+        <option value="Personal">Personal</option>
+        <option value="Entertainment">Entertainment</option>
+        <option value="Transportation">Transportation</option>
+        <option value="Misc">Misc</option>
       </select>
       <label>Amount</label>
       <input
