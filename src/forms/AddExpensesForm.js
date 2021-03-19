@@ -13,8 +13,9 @@ const AddExpensesForm = (props) => {
     <form
       onSubmit={(event) => {
         event.preventDefault(); //prevents default form submission
-        if (!expense.type || !expense.amount) return; //validation no empty values allowed
-
+        if (!expense.date || !expense.type || !expense.amount) {
+          return; //validation no empty values allowed
+        }
         props.addExpense(expense); //pass input to expenses state
         setExpense(initialFormState); //reset the form to initial value
       }}>
@@ -24,6 +25,7 @@ const AddExpensesForm = (props) => {
         type="date"
         name="date"
         value={expense.date}
+        required
       />
       <label>Type</label>
       <input
@@ -31,13 +33,16 @@ const AddExpensesForm = (props) => {
         type="text"
         name="type"
         value={expense.type}
+        required
       />
-      <label>Amount (&#8364;</label>
+      <label>Amount (&#8364;)</label>
       <input
         onChange={handleInputChange}
         type="number"
         name="amount"
+        min="0,01"
         value={expense.amount}
+        required
       />
       <button>Add new expense</button>
     </form>

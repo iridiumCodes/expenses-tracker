@@ -24,6 +24,7 @@ const EditExpenseForm = (props) => {
         type="date"
         name="date"
         value={expense.date}
+        required
       />
       <label>Type</label>
       <input
@@ -31,13 +32,16 @@ const EditExpenseForm = (props) => {
         type="text"
         name="type"
         value={expense.type}
+        required
       />
       <label>Amount</label>
       <input
         onChange={handleInputChange}
         type="number"
         name="amount"
+        min="0,01"
         value={expense.amount}
+        required
       />
       <button>Update expense</button>
       <button
