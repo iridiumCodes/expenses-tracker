@@ -6,7 +6,7 @@ const Expenses = (props) => (
       <tr>
         <th>Date</th>
         <th>Expense</th>
-        <th>Amount</th>
+        <th>Amount(&#8364;)</th>
         <th>Actions</th>
       </tr>
     </thead>
