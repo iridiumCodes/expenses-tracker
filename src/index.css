@@ -40,6 +40,8 @@ html {
  */
 body {
   margin: 0;
+  background-image: url('dollar.jpg');
+  background-repeat: repeat;
 }
 
 /**
