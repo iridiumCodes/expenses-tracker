@@ -40,8 +40,6 @@ html {
  */
 body {
   margin: 0;
-  background-image: url('./dollar.jpg');
-  background-repeat: repeat;
 }
 
 /**
@@ -387,7 +385,8 @@ html {
 
 body {
   color: #404040;
-  background: white;
+  background-image: url('./dollar.jpg');
+  background-repeat: repeat;
   font-size: 1rem;
 }
 
