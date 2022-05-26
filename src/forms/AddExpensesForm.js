@@ -5,13 +5,20 @@ const AddExpensesForm = (props) => {
     setExpense(initialFormState);
   }, [props]);
 
+
   const initialFormState = {id: null, date: '', type: '', amount: ''};
   const [expense, setExpense] = useState(initialFormState);
+
+    useEffect(() => {
+        // storing input name
+        localStorage.setItem("expense", JSON.stringify(expense));
+    }, [expense]);
 
   const handleInputChange = (event) => {
     const {name, value} = event.target;
     setExpense({...expense, [name]: value});
   };
+
 
   return (
     <form
