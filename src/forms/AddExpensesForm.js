@@ -1,24 +1,35 @@
-import React, {useState, setState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
+
+const initialFormState = {id: null, date: '', type: '', amount: ''};
 
 const AddExpensesForm = (props) => {
   useEffect(() => {
     setExpense(initialFormState);
   }, [props]);
 
+const [expense, setExpense] = useState(initialFormState);
 
-  const initialFormState = {id: null, date: '', type: '', amount: ''};
-  const [expense, setExpense] = useState(initialFormState);
-
-    useEffect(() => {
-        // storing input name
-        localStorage.setItem("expense", JSON.stringify(expense));
-    }, [expense]);
-
-  const handleInputChange = (event) => {
+const handleInputChange = (event) => {
     const {name, value} = event.target;
     setExpense({...expense, [name]: value});
   };
+  
+const handleMaxDate = (event) => {
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth() + 1; //January is 0!
+  var yyyy = today.getFullYear();
+  if (dd < 10) {
+    dd = '0' + dd;
+  }
+  if (mm < 10) {
+    mm = '0' + mm;
+  } 
+      
+  today = yyyy + '-' + mm + '-' + dd;
 
+  document.getElementById("datefield").setAttribute("max", today);
+}
 
   return (
     <form
@@ -29,9 +40,12 @@ const AddExpensesForm = (props) => {
         }
         props.addExpense(expense); //pass input to expenses state
       }}>
+        
       <label>Date</label>
       <input
+        onClick={handleMaxDate}
         onChange={handleInputChange}
+        id = "datefield"
         type="date"
         name="date"
         value={expense.date}
